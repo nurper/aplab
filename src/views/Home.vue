@@ -8,24 +8,18 @@ import {
   mdiFinance,
   mdiMonitorCellphone,
   mdiReload,
-  mdiGithub,
   mdiChartPie
 } from '@mdi/js'
 import * as chartConfig from '@/components/Charts/chart.config.js'
 import LineChart from '@/components/Charts/LineChart.vue'
 import MainSection from '@/components/MainSection.vue'
-import TitleBar from '@/components/TitleBar.vue'
-import HeroBar from '@/components/HeroBar.vue'
 import CardWidget from '@/components/CardWidget.vue'
 import CardComponent from '@/components/CardComponent.vue'
 import ClientsTable from '@/components/ClientsTable.vue'
 import Notification from '@/components/Notification.vue'
-import JbButton from '@/components/JbButton.vue'
 import CardTransactionBar from '@/components/CardTransactionBar.vue'
 import CardClientBar from '@/components/CardClientBar.vue'
 import TitleSubBar from '@/components/TitleSubBar.vue'
-
-const titleStack = ref(['Admin', 'Dashboard'])
 
 const chartData = ref(null)
 
@@ -43,37 +37,12 @@ const clientBarItems = computed(() => store.state.clients.slice(0, 3))
 
 const transactionBarItems = computed(() => store.state.history.slice(0, 3))
 
-const darkMode = computed(() => store.state.darkMode)
 </script>
 
 <template>
-  <title-bar :title-stack="titleStack" />
-  <hero-bar>Dashboard</hero-bar>
   <main-section>
-    <notification
-      color="info"
-      :icon="mdiGithub"
-    >
-      Please star this project on
-      <a
-        href="https://github.com/justboil/admin-one-vue-tailwind"
-        class="underline"
-        target="_blank"
-      >GitHub</a>
-      <template #right>
-        <jb-button
-          href="https://github.com/justboil/admin-one-vue-tailwind"
-          :icon="mdiGithub"
-          :outline="darkMode"
-          label="GitHub"
-          target="_blank"
-          small
-        />
-      </template>
-    </notification>
     <div class="grid grid-cols-1 gap-6 lg:grid-cols-3 mb-6">
       <card-widget
-        trend="12%"
         trend-type="up"
         color="text-emerald-500"
         :icon="mdiAccountMultiple"
@@ -81,7 +50,7 @@ const darkMode = computed(() => store.state.darkMode)
         label="Clients"
       />
       <card-widget
-        trend="12%"
+        trend="30%"
         trend-type="down"
         color="text-blue-500"
         :icon="mdiCartOutline"

@@ -1,16 +1,15 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Home from '@/views/Home.vue'
 
 const routes = [
   {
     // Document title tag
     // We combine it with defaultDocumentTitle set in `src/main.js` on router.afterEach hook
     meta: {
-      title: 'Dashboard'
+      title: 'Feed'
     },
     path: '/',
-    name: 'home',
-    component: Home
+    name: 'feed',
+    component: () => import(/* webpackChunkName: "tables" */ '@/views/NewsFeed.vue')
   },
   {
     meta: {
