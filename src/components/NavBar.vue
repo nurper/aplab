@@ -75,18 +75,18 @@ const menuNavBarToggle = () => {
                 label="My Profile"
               />
             </nav-bar-item>
-            <nav-bar-item>
-              <nav-bar-item-label
-                :icon="mdiCogOutline"
-                label="Settings"
-              />
-            </nav-bar-item>
-            <nav-bar-item>
-              <nav-bar-item-label
-                :icon="mdiEmail"
-                label="Messages"
-              />
-            </nav-bar-item>
+<!--            <nav-bar-item>-->
+<!--              <nav-bar-item-label-->
+<!--                :icon="mdiCogOutline"-->
+<!--                label="Settings"-->
+<!--              />-->
+<!--            </nav-bar-item>-->
+<!--            <nav-bar-item>-->
+<!--              <nav-bar-item-label-->
+<!--                :icon="mdiEmail"-->
+<!--                label="Messages"-->
+<!--              />-->
+<!--            </nav-bar-item>-->
             <nav-bar-menu-divider />
             <nav-bar-item>
               <nav-bar-item-label
