@@ -5,8 +5,6 @@ import {
   mdiClose,
   mdiDotsVertical,
   mdiAccount,
-  mdiCogOutline,
-  mdiEmail,
   mdiLogout,
   mdiThemeLightDark
 } from '@mdi/js'
