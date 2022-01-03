@@ -6,16 +6,17 @@ import NewsCard from '@/components/NewsCard'
 <template>
   <main-section>
     <div
-      v-for="i in 10"
+      v-for="(post, i) in posts"
       :key="i"
       class="flex justify-center pt-8"
     >
       <news-card
-        :img="newsContent.img"
-        :content="newsContent.content"
-        :hashtags="newsContent.hashtags"
-        :title="newsContent.title"
-        :img-alt="newsContent.alt"
+        :img="post.img"
+        :content="post.summary"
+        :hashtags="post.tags"
+        :title="post.title"
+        :img-alt="img_alt"
+        :link="post.link"
       />
     </div>
   </main-section>
@@ -28,13 +29,7 @@ export default {
   data () {
     return {
       posts: '',
-      newsContent: {
-        img: 'https://marmotamaps.com/de/fx/wallpaper/download/faszinationen/Marmotamaps_Wallpaper_Berchtesgaden_Desktop_1920x1080.jpg',
-        alt: 'No image found',
-        title: 'Some news title',
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut neque maximus, elementum ipsum et, ornare tortor. Donec posuere ante elit, in imperdiet dolor ullamcorper eu. Aliquam erat volutpat. Cras orci magna, placerat non vestibulum ultricies, ornare et nibh. Suspendisse ultrices varius turpis ac pharetra. Duis ornare elementum fermentum. Vivamus molestie ante vestibulum eros maximus, a interdum velit vestibulum. Phasellus molestie massa quis leo egestas bibendum. In id nisi condimentum, consequat felis nec, tempus metus. Vestibulum sagittis mattis diam, in imperdiet turpis convallis et. Maecenas vestibulum metus mauris, vel maximus velit laoreet nec. Phasellus tempus ut est non tempor. Maecenas iaculis ante dui, sit amet ultrices orci bibendum imperdiet. Maecenas id ultricies quam. Proin ante leo, mollis a ex a, rhoncus posuere tortor. Vivamus vitae quam at ex efficitur condimentum eu et lectus.',
-        hashtags: ['travel', 'mountain', 'sky']
-      }
+      img_alt: 'No image found'
     }
   },
   methods: {
@@ -42,7 +37,7 @@ export default {
       let _this = this
       get(_this, 'getnews', { params: '' }, function (response) {
         let json = response.data
-        _this.posts = json.posts
+        _this.posts = json.result.posts
       }, function () {
         //
       })

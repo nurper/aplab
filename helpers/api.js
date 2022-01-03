@@ -1,7 +1,8 @@
 import axios from 'axios'
 axios.defaults.baseURL = 'http://localhost:3000/api/'
 
-export function post (_this, url, payload, successCallback, errorCallback, headers = '') {
+export function post (_this, url, payload, successCallback, errorCallback) {
+  let headers = ''
   return axios({
     method: 'POST',
     url: url,
