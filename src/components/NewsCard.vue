@@ -4,7 +4,7 @@
     <div class="px-6 py-4">
       <div class="font-bold text-xl mb-2">{{ title }}</div>
       <p class="text-base overflow-hidden" :class="text_class">
-        {{content}}
+        {{ content }}
       </p>
       <div><p style="cursor: pointer" class="text justify-end font-bold text-sky-600"
               :style="{ display: display_expand }"

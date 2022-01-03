@@ -22,9 +22,12 @@ import NewsCard from '@/components/NewsCard'
 </template>
 
 <script>
+import { get } from '../../helpers/api'
+
 export default {
   data () {
     return {
+      posts: '',
       newsContent: {
         img: 'https://marmotamaps.com/de/fx/wallpaper/download/faszinationen/Marmotamaps_Wallpaper_Berchtesgaden_Desktop_1920x1080.jpg',
         alt: 'No image found',
@@ -33,6 +36,20 @@ export default {
         hashtags: ['travel', 'mountain', 'sky']
       }
     }
+  },
+  methods: {
+    getNews () {
+      let _this = this
+      get(_this, 'getnews', { params: '' }, function (response) {
+        let json = response.data
+        _this.posts = json.posts
+      }, function () {
+        //
+      })
+    }
+  },
+  created () {
+    this.getNews()
   }
 }
 </script>
